@@ -17,6 +17,8 @@ export async function unpack(file: IDFileInfo|string, output: string = "") {
     let fname = typeof file === "string" ? file : file.name;
     let dir_path = fpath;
 
+    console.log("%cunpacking: %c" + fpath, "color: yellow", "color:white");
+
     if( output.length ) {
         dir_path = output;
         if( dir_path[dir_path.length-1] !== "\\" || dir_path[dir_path.length-1] !== "//" )
@@ -74,9 +76,10 @@ export async function unpack(file: IDFileInfo|string, output: string = "") {
         //@ts-ignore
         await Deno.writeFile( `${dir_path}${fname}.DDS`, data.mTexture );
         await writeJsonAsync( `${dir_path}${fname}.JSON`, save_data );
+        console.log("%cunpacked: %c" + fpath, "color: green", "color:white");
 
     } catch (error: any) {
-        throw Error( error );
-        
+        console.log("%cunpack error: %c" + fpath, "color: red", "color:white");
+        throw Error( error );      
     }
 }

@@ -14,7 +14,10 @@ export class ZLibDataPtr
 	{
 		this.tOriginalSize = r.ReadInt();
 		this.tCompressSize = r.ReadInt();
-		this.tCompress = r.ReadBytes( this.tCompressSize );
+		if( r.CheckValid( this.tCompressSize ) )
+			this.tCompress = r.ReadBytes( this.tCompressSize );
+		else
+			this.tCompress = r.GetRemain();
 	}
 }
 

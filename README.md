@@ -26,8 +26,8 @@ yarn install
 
 
 Unpack Folder:
-* Deno task run unpack file E:\12Sky2\G03_GDATA\D01_GIMAGE2D\001\001_00001.IMG ./out
-* Deno task run unpack folder E:\12Sky2\G03_GDATA\D01_GIMAGE2D\001 ./out
+* Deno task run unpack file E:\12Sky2\G03_GDATA\D01_GIMAGE2D\001\001_00001.IMG ./out/001
+* Deno task run unpack folder E:\12Sky2\G03_GDATA\D01_GIMAGE2D\001 ./out/001
 
 
 

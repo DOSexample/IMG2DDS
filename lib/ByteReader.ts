@@ -38,16 +38,16 @@ import {
         GetSize(): int { return this.data.length; }
         GetOffset(): int { return this.offset; }
         SetOffset( offset: int ){ this.offset = offset; }
-        GetRemain(): ByteReader
+        //SetRemain(): ByteReader
+        //{
+        //    this.data = this.data.slice( this.offset, this.offset+(this.data.length-this.offset) );
+        //    this.offset = 0;
+        //    return this;
+        //}
+        GetRemain(): Uint8Array
         {
-            this.data = this.data.slice( this.offset, this.offset+(this.data.length-this.offset) );
-            this.offset = 0;
-            return this;
-        }
-        GetRemainData(): Uint8Array
-        {
-            this.data = this.data.slice( this.offset, this.offset+(this.data.length-this.offset) );
-            return this.data;
+            const data = this.data.slice( this.offset, this.offset+(this.data.length-this.offset) );
+            return data;
         }
         GetData(): Uint8Array { return this.data; }
         static CopyFrom(r:ByteReader, position: int, length: int ) : ByteReader
@@ -227,7 +227,6 @@ import {
             s.Format = this.ReadUInt() as D3DFORMAT;
             s.ResourceType = this.ReadUInt() as D3DRESOURCETYPE;
             s.ImageFileFormat = this.ReadUInt() as D3DXIMAGE_FILEFORMAT;
-            console.log(s);
             return s;
         }
 
