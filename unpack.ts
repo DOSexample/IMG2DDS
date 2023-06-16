@@ -38,7 +38,6 @@ export async function unpack(file: IDFileInfo|string, output: string = "") {
     if( dslash1 !== -1 ) {
         dir_path = dir_path.substring( 0, dslash1+1 );
     }
-    console.log("dir_path:",dir_path);
     if( dir_path[dir_path.length-1] !== "/" ) {
         dir_path += "/";
     }
@@ -53,8 +52,6 @@ export async function unpack(file: IDFileInfo|string, output: string = "") {
     if( ext !== ".IMG" ) {
         return;
     }
-
-    console.log(fpath, slash1, fname, ext, output);
 
     try {
         //@ts-ignore
